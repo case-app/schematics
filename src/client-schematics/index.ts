@@ -107,7 +107,6 @@ export function createResource(options: any): Rule {
     menuItemsString =
       menuItemsString.substring(0, arrayOpeningPosition) +
       '\n' +
-      // TODO: Permissions (pending backend implementation).
       JSON.stringify({
         label: `${classify(options.name)}s`,
         permissionsOr: [

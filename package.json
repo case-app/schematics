@@ -1,7 +1,8 @@
 {
-  "name": "abacus-schematics",
-  "version": "0.0.7",
-  "description": "Abacus schematics",
+  "name": "@case-app/schematics",
+  "private": false,
+  "version": "0.0.1",
+  "description": "Set of schematics for CASE Framework",
   "scripts": {
     "build": "npm run move && tsc -p tsconfig.json",
     "build:watch": "tsc -p tsconfig.json --watch",
