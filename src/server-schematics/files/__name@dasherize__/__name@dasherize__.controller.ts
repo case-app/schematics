@@ -10,7 +10,7 @@ import {
   UseGuards
 } from '@nestjs/common'
 import { UpdateResult, DeleteResult } from 'typeorm'
-import { Permission, Paginator, AuthGuard, SelectOption } from 'abacus-nest-library'
+import { Permission, Paginator, AuthGuard, SelectOption } from '@case-app/nest-library'
 
 import { <%= classify(name) %>Service } from './<%= dasherize(name) %>.service'
 import { <%= classify(name) %> } from './<%= dasherize(name) %>.entity'

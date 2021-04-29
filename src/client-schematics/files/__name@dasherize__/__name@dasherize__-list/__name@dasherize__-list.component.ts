@@ -10,7 +10,7 @@ import {
   ResourceService,
   AbacusConfig,
   Yield
-} from 'abacus-angular-library'
+} from '@case-app/angular-library'
 
 import { <%= camelize(name) %>Definition } from '../<%= camelize(name) %>.definition'
 import { <%= camelize(name) %>Yields } from '../<%= camelize(name) %>.yields'

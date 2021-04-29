@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { FormBuilder } from '@angular/forms'
 
-import { AbcCreateEditComponent, Field, Filter, ResourceDefinition, BreadcrumbService, FlashMessageService, ResourceService, abcCreateEditTemplate } from 'abacus-angular-library'
+import { AbcCreateEditComponent, Field, Filter, ResourceDefinition, BreadcrumbService, FlashMessageService, ResourceService, abcCreateEditTemplate } from '@case-app/angular-library'
 
 import { <%= camelize(name) %>Definition } from '../<%= camelize(name) %>.definition'
 import { <%= classify(name) %>FieldsGenerator } from '../<%= camelize(name) %>.fields'
