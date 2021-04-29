@@ -1,0 +1,15 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "createResourceServer": {
+      "description": "Create Abacus resource (server)",
+      "factory": "./server-schematics/index#createResource",
+      "schema": "./create-server-resource-schema.json"
+    },
+    "createResourceClient": {
+      "description": "Create Abacus resource (client)",
+      "factory": "./client-schematics/index#createResource",
+      "schema": "./create-client-resource-schema.json"
+    }
+  }
+}
