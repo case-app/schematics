@@ -1,4 +1,4 @@
-import { Field, ResourceService } from 'abacus-angular-library'
+import { Field, ResourceService } from '@case-app/angular-library'
 
 // A generator class is needed because some field properties rely on other services.
 export class <%= classify(name) %>FieldsGenerator {

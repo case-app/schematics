@@ -1,4 +1,4 @@
-import { Gender, LinkType, ResourceDefinition } from 'abacus-angular-library'
+import { Gender, LinkType, ResourceDefinition } from '@case-app/angular-library'
 
 export const <%= camelize(name) %>Definition: ResourceDefinition = {
   title: '<%= classify(displayName) %>s',

@@ -1,4 +1,4 @@
-import { Yield } from 'abacus-angular-library'
+import { Yield } from '@case-app/angular-library'
 
 export const <%= camelize(name) %>Yields: Yield[] = [
     {
