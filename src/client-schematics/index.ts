@@ -108,7 +108,7 @@ export function createResource(options: any): Rule {
       menuItemsString.substring(0, arrayOpeningPosition) +
       '\n' +
       JSON.stringify({
-        label: `${classify(options.name)}s`,
+        label: `${classify(options.displayName)}s`,
         permissionsOr: [
           `browse${classify(options.name)}s`,
           `browseOwn${classify(options.name)}s`,
