@@ -109,8 +109,11 @@ export function createResource(options: any): Rule {
       '\n' +
       // TODO: Permissions (pending backend implementation).
       JSON.stringify({
-        label: classify(options.displayName),
-        permissionsOr: [],
+        label: `${classify(options.name)}s`,
+        permissionsOr: [
+          `browse${classify(options.name)}`,
+          `browseOwn${classify(options.name)}`,
+        ],
         routePath: `/${dasherize(options.displayName)}s`,
         icon: 'icon-grid',
         items: [],
