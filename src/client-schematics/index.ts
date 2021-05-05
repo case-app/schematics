@@ -108,10 +108,10 @@ export function createResource(options: any): Rule {
       menuItemsString.substring(0, arrayOpeningPosition) +
       '\n' +
       JSON.stringify({
-        label: `${classify(options.name)}s`,
+        label: `${classify(options.displayName)}s`,
         permissionsOr: [
-          `browse${classify(options.name)}`,
-          `browseOwn${classify(options.name)}`,
+          `browse${classify(options.name)}s`,
+          `browseOwn${classify(options.name)}s`,
         ],
         routePath: `/${dasherize(options.displayName)}s`,
         icon: 'icon-grid',
