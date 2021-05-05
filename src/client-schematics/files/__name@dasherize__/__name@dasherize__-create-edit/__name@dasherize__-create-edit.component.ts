@@ -2,15 +2,14 @@ import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { FormBuilder } from '@angular/forms'
 
-import { AbcCreateEditComponent, Field, Filter, ResourceDefinition, BreadcrumbService, FlashMessageService, ResourceService, abcCreateEditTemplate } from '@case-app/angular-library'
+import { AbcCreateEditComponent, ResourceDefinition, Field, Filter, BreadcrumbService, FlashMessageService, ResourceService, abcCreateEditTemplate } from '@case-app/angular-library'
 
 import { <%= camelize(name) %>Definition } from '../<%= camelize(name) %>.definition'
-import { <%= classify(name) %>FieldsGenerator } from '../<%= camelize(name) %>.fields'
 
 @Component({ template: abcCreateEditTemplate })
 export class <%= classify(name) %>CreateEditComponent extends AbcCreateEditComponent implements OnInit {
   definition: ResourceDefinition = <%= camelize(name) %>Definition
-  fields: Field[]
+  fields: Field[] = []
   filters: Filter[] = []
 
   constructor(
@@ -19,8 +18,7 @@ export class <%= classify(name) %>CreateEditComponent extends AbcCreateEditCompo
     activatedRoute: ActivatedRoute,
     resourceService: ResourceService,
     breadcrumbService: BreadcrumbService,
-    flashMessageService: FlashMessageService,
-    private fieldsGenerator: <%= classify(name) %>FieldsGenerator
+    flashMessageService: FlashMessageService
   ) {
     super(
       formBuilder,
@@ -33,8 +31,6 @@ export class <%= classify(name) %>CreateEditComponent extends AbcCreateEditCompo
   }
 
   ngOnInit() {
-    this.fields = this.fieldsGenerator.<%= camelize(name) %>Fields
-
     this.initCreateEditView()
   }
 }

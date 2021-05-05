@@ -7,7 +7,7 @@ export const <%= camelize(name) %>Definition: ResourceDefinition = {
   gender: Gender.<%= gender %>,
   slug: '<%= dasherize(name) %>s',
   path: '<%= dasherize(displayName) %>s',
-  hasDetailPage: true,
+  hasDetailPage: false,
   hasListPage: true,
   buttons: [LinkType.CREATE],
   defaultLink: LinkType.DETAIL,
