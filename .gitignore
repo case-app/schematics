@@ -4,7 +4,7 @@ dist
 # IDEs
 .idea/
 jsconfig.json
-.vscode/
+
 
 # Misc
 node_modules/

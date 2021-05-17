@@ -16,7 +16,7 @@ npm link // May required sudo.
 ```
 and then in the root of the server project of abacus-framework : 
 ```bash
-npm link abacus-schematics
+npm link @case-app/schematics
 ```
 
 ## Publishing
