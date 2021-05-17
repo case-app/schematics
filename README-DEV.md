@@ -16,7 +16,7 @@ npm link // May required sudo.
 ```
 and then in the root of the server project of abacus-framework : 
 ```bash
-npm link abacus-schematics
+npm link @case-app/schematics
 ```
 
 ## Publishing
@@ -24,9 +24,7 @@ npm link abacus-schematics
 To publish, simply do:
 
 ```bash
-npm run build
-cd dist
-npm publish
+npm run publish
 ```
 
 That's it!

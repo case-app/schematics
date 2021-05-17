@@ -10,7 +10,6 @@ import { <%= camelize(name) %>Definition } from '../<%= camelize(name) %>.defini
 export class <%= classify(name) %>CreateEditComponent extends AbcCreateEditComponent implements OnInit {
   definition: ResourceDefinition = <%= camelize(name) %>Definition
   fields: Field[] = []
-  filters: Filter[] = []
 
   constructor(
     formBuilder: FormBuilder,

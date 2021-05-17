@@ -5,6 +5,7 @@ export const <%= camelize(name) %>Definition: ResourceDefinition = {
   nameSingular: '<%= displayName %>',
   namePlural: '<%= displayName %>s',
   gender: Gender.<%= gender %>,
+  mainIdentifier: 'id',
   slug: '<%= dasherize(name) %>s',
   path: '<%= dasherize(displayName) %>s',
   hasDetailPage: false,
