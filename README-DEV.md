@@ -24,9 +24,7 @@ npm link @case-app/schematics
 To publish, simply do:
 
 ```bash
-npm run build
-cd dist
-npm publish
+npm run publish
 ```
 
 That's it!
