@@ -16,11 +16,11 @@ export const <%= camelize(name) %>Definition: ResourceDefinition = {
   dropdownLinks: [
     {
       type: LinkType.EDIT,
-      permission: 'edit<%= classify(name) %>',
+      permission: 'edit<%= classify(name) %>s',
     },
     {
       type: LinkType.DELETE,
-      permission: 'delete<%= classify(name) %>',
+      permission: 'delete<%= classify(name) %>s',
     },
   ]
 }
