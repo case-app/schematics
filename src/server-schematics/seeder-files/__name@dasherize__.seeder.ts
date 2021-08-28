@@ -13,9 +13,10 @@ export class <%= classify(name) %>Seeder {
   }
 
   async seed(): Promise<<%= classify(name) %>[]> {
+    console.log('\x1b[35m', '[] Seeding <%= camelize(name) %>s...')
     const save<%= classify(name) %>Promises: Promise<<%= classify(name) %>>[] = Array.from(Array(this.count)).map(
       async () => {
-        return this.entityManager.save(this.get<%= classify(name) %>())
+        return this.entityManager.save(await this.get<%= classify(name) %>())
       }
     )
 
@@ -24,11 +25,11 @@ export class <%= classify(name) %>Seeder {
     })
   }
 
-  private get<%= classify(name) %>(): <%= classify(name) %> {
+  private get<%= classify(name) %>(): Promise<<%= classify(name) %>> {
     const <%= camelize(name) %>: <%= classify(name) %> = this.entityManager.create(<%= classify(name) %>, {
       // Insert factory properties here.
     })
 
-    return <%= camelize(name) %>
+    return Promise.resolve(<%= camelize(name) %>)
   }
 }

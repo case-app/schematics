@@ -23,10 +23,10 @@ export class <%= classify(name) %>Controller {
   @Get()
   @Permission('browse<%= classify(name) %>s')
   async index(
-    @Query('page') page: string,
-    @Query('orderBy') orderBy: string,
-    @Query('orderByDesc') orderByDesc: string,
-    @Query('withoutPagination') withoutPagination: string
+    @Query('page') page?: string,
+    @Query('orderBy') orderBy?: string,
+    @Query('orderByDesc') orderByDesc?: string,
+    @Query('withoutPagination') withoutPagination?: string
   ): Promise<Paginator<<%= classify(name) %>> | <%= classify(name) %>[]> {
     return this.<%= camelize(name) %>Service.index({
       page,
@@ -39,8 +39,8 @@ export class <%= classify(name) %>Controller {
   @Get('select-options')
   @UseGuards(AuthGuard)
   async listSelectOptions(
-    @Query('orderBy') orderBy: string,
-    @Query('orderByDesc') orderByDesc: string
+    @Query('orderBy') orderBy?: string,
+    @Query('orderByDesc') orderByDesc?: string
   ): Promise<SelectOption[]> {
     const <%= camelize(name) %>s: <%= classify(name) %>[] = (await this.<%= camelize(name) %>Service.index({
       withoutPagination: 'true',
