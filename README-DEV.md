@@ -1,20 +1,23 @@
-# Abacus schematics
-This repository is a set of Abacus Framework schematics for nestjs. 
+# CASE schematics
+
+This repository is a set of CASE Framework schematics for nestjs.
 
 ## Development
 
 ```bash
 npm run build:watch
-npm run move // Manual action if changes in /files directory. 
+npm run move // Manual action if changes in /files directory.
 ```
 
-To link and use in abacus-framework :
+To link and use in CASE :
 
 ```bash
 cd dist
 npm link // May required sudo.
 ```
-and then in the root of the server project of abacus-framework : 
+
+and then in the root of the server project of CASE :
+
 ```bash
 npm link @case-app/schematics
 ```

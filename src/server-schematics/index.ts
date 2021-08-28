@@ -74,6 +74,16 @@ export function createResource(options: any): Rule {
     // Call resource seeder from main seeder.
     let mainSeederBuffer: Buffer = tree.read(mainSeederPath) as Buffer
     let mainSeederString: string = mainSeederBuffer.toString()
+
+    const resourceCountsPosition: number = mainSeederString.indexOf(
+      '// * Resource counts (keep comment for schematics).'
+    )
+
+    mainSeederString =
+      mainSeederString.substring(0, resourceCountsPosition + 52) +
+      `\nconst ${camelize(options.name)}Count = 40\n` +
+      mainSeederString.substring(resourceCountsPosition + 52)
+
     const tableNamesPosition: number = mainSeederString.indexOf(
       '// * Table names (keep comment for schematics).'
     )
@@ -92,7 +102,9 @@ export function createResource(options: any): Rule {
         options.name
       )}.seeder'\n` +
       mainSeederString.substring(0, closeConnectionPosition) +
-      `await (new ${classify(options.name)}Seeder(connection, 50)).seed()\n  ` +
+      `await (new ${classify(options.name)}Seeder(connection, ${camelize(
+        options.name
+      )}Count)).seed()\n  ` +
       mainSeederString.substring(closeConnectionPosition)
 
     tree.overwrite(mainSeederPath, mainSeederString)

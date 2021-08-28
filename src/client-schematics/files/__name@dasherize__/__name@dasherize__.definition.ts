@@ -11,7 +11,7 @@ export const <%= camelize(name) %>Definition: ResourceDefinition = {
   hasDetailPage: false,
   hasListPage: true,
   buttons: [LinkType.CREATE],
-  defaultLink: LinkType.DETAIL,
+  defaultLink: LinkType.EDIT,
   childrenThatPreventDelete: [],
   dropdownLinks: [
     {
