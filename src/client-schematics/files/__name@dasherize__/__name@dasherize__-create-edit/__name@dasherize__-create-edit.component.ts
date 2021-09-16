@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { FormBuilder } from '@angular/forms'
 
-import { AbcCreateEditComponent, ResourceDefinition, Field, Filter, BreadcrumbService, FlashMessageService, ResourceService, abcCreateEditTemplate } from '@case-app/angular-library'
+import { CaseCreateEditComponent, ResourceDefinition, Field, Filter, BreadcrumbService, FlashMessageService, ResourceService, caseCreateEditTemplate } from '@case-app/angular-library'
 
 import { <%= camelize(name) %>Definition } from '../<%= camelize(name) %>.definition'
 
-@Component({ template: abcCreateEditTemplate })
-export class <%= classify(name) %>CreateEditComponent extends AbcCreateEditComponent implements OnInit {
+@Component({ template: caseCreateEditTemplate })
+export class <%= classify(name) %>CreateEditComponent extends CaseCreateEditComponent implements OnInit {
   definition: ResourceDefinition = <%= camelize(name) %>Definition
   fields: Field[] = []
 

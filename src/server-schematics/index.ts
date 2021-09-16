@@ -45,7 +45,7 @@ export function createResource(options: any): Rule {
 
     // Push resource routes to array.
     const importPosition: number = appModuleString.indexOf(
-      'AbacusNestLibraryModule.forRoot'
+      'CaseNestLibraryModule.forRoot'
     )
 
     appModuleString =

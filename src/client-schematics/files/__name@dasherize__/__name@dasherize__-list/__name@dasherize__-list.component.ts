@@ -1,22 +1,22 @@
 import { Component, OnInit, Inject } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import {
-  abcListTemplate,
-  AbcListComponent,
+  caseListTemplate,
+  CaseListComponent,
   Filter,
   ResourceDefinition,
   BreadcrumbService,
   FlashMessageService,
   ResourceService,
-  AbacusConfig,
+  CaseConfig,
   Yield
 } from '@case-app/angular-library'
 
 import { <%= camelize(name) %>Definition } from '../<%= camelize(name) %>.definition'
 import { <%= camelize(name) %>Yields } from '../<%= camelize(name) %>.yields'
 
-@Component({ template: abcListTemplate })
-export class <%= classify(name) %>ListComponent extends AbcListComponent implements OnInit {
+@Component({ template: caseListTemplate })
+export class <%= classify(name) %>ListComponent extends CaseListComponent implements OnInit {
   definition: ResourceDefinition = <%= camelize(name) %>Definition
   yields: Yield[] = <%= camelize(name) %>Yields
 
@@ -28,7 +28,7 @@ export class <%= classify(name) %>ListComponent extends AbcListComponent impleme
     resourceService: ResourceService,
     breadcrumbService: BreadcrumbService,
     flashMessageService: FlashMessageService,
-    @Inject('ABACUS_CONFIG_TOKEN') config: AbacusConfig
+    @Inject('CASE_CONFIG_TOKEN') config: CaseConfig
   ) {
     super(
       router,
