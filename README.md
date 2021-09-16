@@ -1,11 +1,11 @@
-# Abacus Schematics for nestjs
+# CASE Schematics
 
-This repository is a set of Abacus Framework schematics for nestjs. It has to be used through abacus-framework package scripts.
+This repository is a set of CASE Framework schematics for the client (Angular) and the server (NestJS).
 
 ### Install
 
-Due to nestjs structure, the package has to be global.
+Due to NestJS structure, the package has to be global.
 
 ```bash
-sudo npm i -g abacus-schematics 
+sudo npm i -g @case-app/schematics
 ```

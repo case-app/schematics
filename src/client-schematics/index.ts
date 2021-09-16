@@ -86,14 +86,14 @@ export function createResource(options: any): Rule {
       appRoutingString.substring(routeDeclarationPosition)
 
     // Push resource routes to array.
-    const abcRoutesImportPosition: number = appRoutingString.indexOf(
-      '...(abcRoutes as Route[])'
+    const caseRoutesImportPosition: number = appRoutingString.indexOf(
+      '...(caseRoutes as Route[])'
     )
 
     appRoutingString =
-      appRoutingString.substring(0, abcRoutesImportPosition) +
+      appRoutingString.substring(0, caseRoutesImportPosition) +
       `...${camelize(options.name)}Routes,\n` +
-      appRoutingString.substring(abcRoutesImportPosition)
+      appRoutingString.substring(caseRoutesImportPosition)
 
     tree.overwrite(appRoutingModulePath, appRoutingString)
 

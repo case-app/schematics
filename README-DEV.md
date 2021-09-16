@@ -1,6 +1,6 @@
 # CASE schematics
 
-This repository is a set of CASE Framework schematics for nestjs.
+This repository is a set of CASE Framework schematics for the client (Angular) and the server (NestJS).
 
 ## Development
 
