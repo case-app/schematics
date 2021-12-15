@@ -126,6 +126,36 @@ export function createResource(options: any): Rule {
 
     tree.overwrite(permissionContentPath, permissionContentString)
 
+    // * Make resource searchable.
+    const searchServicePath = './src/search/search.service.ts'
+    let searchServiceBuffer: Buffer = tree.read(searchServicePath) as Buffer
+    let searchServiceString: string = searchServiceBuffer.toString()
+
+    const searchResourcesPosition: number = searchServiceString.indexOf(
+      '// * Search resources (keep comment for schematics).'
+    )
+
+    searchServiceString =
+      `import { ${classify(options.name)} } from './../resources/${dasherize(
+        options.name
+      )}/${dasherize(options.name)}.entity'\n` +
+      searchServiceString.substring(0, searchResourcesPosition + 52) +
+      `\nif (
+        resources.includes(${classify(options.name)}.name) &&
+        ${classify(options.name)}.searchableFields &&
+        ${classify(options.name)}.searchableFields.length
+      ) {
+        const ${camelize(
+          options.name
+        )}s: SearchResult[] = await this.searchResource(${classify(
+        options.name
+      )}, terms)
+        searchResults = [...searchResults, ...${camelize(options.name)}s]
+      }` +
+      searchServiceString.substring(searchResourcesPosition + 52)
+
+    tree.overwrite(searchServicePath, searchServiceString)
+
     return chain([
       mergeWith(seedParametrizedTemplates),
       mergeWith(sourceParametrizedTemplates),
