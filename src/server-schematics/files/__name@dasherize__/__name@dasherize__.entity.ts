@@ -7,6 +7,9 @@ import {
 
 @Entity({ name: '<%= camelize(name) %>s' })
 export class <%= classify(name) %> {
+  public static searchableFields: string[] = []
+  public static displayName: string = 'id'
+
   @PrimaryGeneratedColumn()
   id: number
 
