@@ -24,7 +24,7 @@ npm link @case-app/schematics
 
 ## Publishing
 
-To publish, simply do:
+To publish, simply update the version number in `package.json` and do:
 
 ```bash
 npm run publish
