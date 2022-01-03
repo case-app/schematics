@@ -154,6 +154,24 @@ export function createResource(options: any): Rule {
       }` +
       searchServiceString.substring(searchResourcesPosition + 52)
 
+    const getObjectsPosition: number = searchServiceString.indexOf(
+      '// * Get search result objects (keep comment for schematics).'
+    )
+    searchServiceString =
+      searchServiceString.substring(0, getObjectsPosition + 61) +
+      `\nif (query.${camelize(options.name)}Ids && query.${camelize(
+        options.name
+      )}Ids.length) {
+        const ${camelize(
+          options.name
+        )}s: SearchResult[] = await this.getSearchResultObjectsForResource(
+          ${classify(options.name)},
+          query.${camelize(options.name)}Ids
+        )
+        searchResults = [...searchResults, ...${camelize(options.name)}s]
+      }` +
+      searchServiceString.substring(getObjectsPosition + 61)
+
     tree.overwrite(searchServicePath, searchServiceString)
 
     return chain([
