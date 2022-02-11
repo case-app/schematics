@@ -1,4 +1,4 @@
-import { Gender, LinkType, ResourceDefinition } from '@case-app/angular-library'
+import { Gender, LinkType, ResourceDefinition, ActionType } from '@case-app/angular-library'
 
 export const <%= camelize(name) %>Definition: ResourceDefinition = {
   title: '<%= classify(displayName) %>s',
@@ -17,12 +17,25 @@ export const <%= camelize(name) %>Definition: ResourceDefinition = {
   childrenThatPreventDelete: [],
   dropdownLinks: [
     {
-      type: LinkType.EDIT,
+      label: 'Editer <%= dasherize(displayName) %>',
       permission: 'edit<%= classify(name) %>s',
+      action: (<%= camelize(name) %>) => ({
+        type: ActionType.Link,
+        link: {
+          path: `${<%= camelize(name) %>Definition.path}/${<%= camelize(name) %>.id}/edit`
+        }
+      })
     },
     {
-      type: LinkType.DELETE,
+      label: 'Effacer <%= dasherize(displayName) %>',
       permission: 'delete<%= classify(name) %>s',
-    },
+      action: (<%= camelize(name) %>) => ({
+        type: ActionType.Delete,
+        delete: {
+          itemToDelete: <%= camelize(name) %>,
+          definition: <%= camelize(name) %>Definition
+        }
+      })
+    }
   ]
 }
