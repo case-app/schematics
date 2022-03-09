@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import {
+  AuthService,
   caseListTemplate,
   CaseListComponent,
   Filter,
@@ -28,6 +29,7 @@ export class <%= classify(name) %>ListComponent extends CaseListComponent implem
     resourceService: ResourceService,
     breadcrumbService: BreadcrumbService,
     flashMessageService: FlashMessageService,
+    authService: AuthService,
     @Inject('CASE_CONFIG_TOKEN') config: CaseConfig
   ) {
     super(
@@ -36,6 +38,7 @@ export class <%= classify(name) %>ListComponent extends CaseListComponent implem
       breadcrumbService,
       resourceService,
       flashMessageService,
+      authService,
       config
     )
   }
