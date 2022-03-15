@@ -161,12 +161,14 @@ export function createResource(options: any): Rule {
       searchServiceString.substring(0, getObjectsPosition + 61) +
       `\nif (query.${camelize(options.name)}Ids && query.${camelize(
         options.name
-      )}Ids.length) {
+      )}Ids.length || query.${camelize(options.name)}Id) {
         const ${camelize(
           options.name
         )}s: SearchResult[] = await this.getSearchResultObjectsForResource(
           ${classify(options.name)},
-          query.${camelize(options.name)}Ids
+          query.${camelize(options.name)}Ids || query.${camelize(
+        options.name
+      )}Id
         )
         searchResults = [...searchResults, ...${camelize(options.name)}s]
       }` +
