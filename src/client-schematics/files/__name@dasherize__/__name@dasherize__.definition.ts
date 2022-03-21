@@ -17,7 +17,7 @@ export const <%= camelize(name) %>Definition: ResourceDefinition = {
   childrenThatPreventDelete: [],
   dropdownLinks: [
     {
-      label: 'Editer <%= dasherize(displayName) %>',
+      label: 'Modifier',
       permission: 'edit<%= classify(name) %>s',
       action: (<%= camelize(name) %>) => ({
         type: ActionType.Link,
@@ -27,7 +27,7 @@ export const <%= camelize(name) %>Definition: ResourceDefinition = {
       })
     },
     {
-      label: 'Effacer <%= dasherize(displayName) %>',
+      label: 'Supprimer',
       permission: 'delete<%= classify(name) %>s',
       action: (<%= camelize(name) %>) => ({
         type: ActionType.Delete,
