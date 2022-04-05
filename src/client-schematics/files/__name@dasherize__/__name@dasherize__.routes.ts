@@ -10,7 +10,10 @@ export const <%= camelize(name) %>Routes: Route[] = [
   {
     path: '<%= dasherize(displayName) %>s',
     component: <%= classify(name) %>ListComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, PermissionGuard],
+    data: {
+      permission: 'browse<%= classify(name) %>s'
+    }
   },
   {
     path: '<%= dasherize(displayName) %>s/create',
