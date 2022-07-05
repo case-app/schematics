@@ -50,7 +50,7 @@ export class <%= classify(name) %>Controller {
 
     return <%= camelize(name) %>s.map((d: <%= classify(name) %>) => ({
       label: `Label for <%= name %> with id ${d.id}`,
-      value: d.id.toString()
+      value: d.id
     }))
   }
 
