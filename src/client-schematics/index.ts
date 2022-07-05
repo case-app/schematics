@@ -87,7 +87,7 @@ export function createResource(options: any): Rule {
 
     // Push resource routes to array.
     const caseRoutesImportPosition: number = appRoutingString.indexOf(
-      '...(caseRoutes as Route[])'
+      '...(caseRoutes as Routes)'
     )
 
     appRoutingString =
