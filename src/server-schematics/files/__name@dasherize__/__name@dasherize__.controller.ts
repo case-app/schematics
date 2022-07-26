@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Post,
   Put,
   Query,
@@ -56,7 +57,7 @@ export class <%= classify(name) %>Controller {
 
   @Get('/:id')
   @Permission('read<%= classify(name) %>s')
-  async show(@Param('id') id: string): Promise<<%= classify(name) %>> {
+  async show(@Param('id', ParseIntPipe) id: number): Promise<<%= classify(name) %>> {
     return this.<%= camelize(name) %>Service.show(id)
   }
   
@@ -79,7 +80,7 @@ export class <%= classify(name) %>Controller {
 
   @Delete('/:id')
   @Permission('delete<%= classify(name) %>s')
-  async delete(@Param() id: string): Promise<DeleteResult> {
+  async delete(@Param('id', ParseIntPipe) id: number): Promise<DeleteResult> {
     return await this.<%= camelize(name) %>Service.destroy(id)
   }
 }

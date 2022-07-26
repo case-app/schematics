@@ -45,17 +45,8 @@ constructor(
     })
   }
 
-  async show(id: string): Promise<<%= classify(name) %>> {
-    const <%= camelize(name) %> = await this.repository
-      .createQueryBuilder('<%= camelize(name) %>')
-      .where('<%= camelize(name) %>.id = :id', {
-        id
-      })
-      .getOne()
-
-    if (!<%= camelize(name) %>) {
-      throw new NotFoundException()
-    }
+  async show(id: number): Promise<<%= classify(name) %>> {
+    const <%= camelize(name) %> = await this.repository.findOneOrFail({ where: { id } })
 
     return <%= camelize(name) %>
   }
@@ -74,11 +65,9 @@ constructor(
     return await this.repository.update(id, <%= camelize(name) %>)
   }
 
-  async destroy(id: string): Promise<DeleteResult> {
-    const <%= camelize(name) %>: <%= classify(name) %> = await this.repository.findOne(id)
-    if (!<%= camelize(name) %>) {
-      throw new NotFoundException()
-    }
+  async destroy(id: number): Promise<DeleteResult> {
+    const <%= camelize(name) %>: <%= classify(name) %> = await this.repository.findOneOrFail({ where: { id } })
+
     return await this.repository.delete(<%= camelize(name) %>.id)
   }
 }
