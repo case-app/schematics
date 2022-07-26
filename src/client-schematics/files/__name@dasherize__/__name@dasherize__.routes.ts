@@ -1,6 +1,6 @@
 import { Route } from '@angular/router'
 
-import { AuthGuard, PermissionGuard } from '@case-app/angular-library'
+import { AuthGuard, PermissionGuard, ResourceMode  } from '@case-app/angular-library'
 
 import { <%= classify(name) %>CreateEditComponent } from './<%= dasherize(name) %>-create-edit/<%= dasherize(name) %>-create-edit.component'
 import { <%= classify(name) %>ListComponent } from './<%= dasherize(name) %>-list/<%= dasherize(name) %>-list.component'
@@ -21,7 +21,7 @@ export const <%= camelize(name) %>Routes: Route[] = [
     canActivate: [AuthGuard, PermissionGuard],
     data: {
       permission: 'add<%= classify(name) %>s',
-      mode: 'create',
+      mode: ResourceMode.Create,
     },
   },
   {
@@ -29,7 +29,7 @@ export const <%= camelize(name) %>Routes: Route[] = [
     component: <%= classify(name) %>CreateEditComponent,
     canActivate: [AuthGuard, PermissionGuard],
     data: {
-      mode: 'edit',
+      mode: ResourceMode.Edit,
       permission: 'edit<%= classify(name) %>s',
     },
   },

@@ -49,9 +49,9 @@ export class <%= classify(name) %>Controller {
       orderByDesc
     })) as <%= classify(name) %>[]
 
-    return <%= camelize(name) %>s.map((d: <%= classify(name) %>) => ({
-      label: `Label for <%= name %> with id ${d.id}`,
-      value: d.id
+    return <%= camelize(name) %>s.map((<%= camelize(name) %>: <%= classify(name) %>) => ({
+      label: `Label for <%= name %> with id ${<%= camelize(name) %>.id}`,
+      value: <%= camelize(name) %>.id
     }))
   }
 
