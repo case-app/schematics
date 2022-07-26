@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Post,
   Put,
   Query,
@@ -48,15 +49,15 @@ export class <%= classify(name) %>Controller {
       orderByDesc
     })) as <%= classify(name) %>[]
 
-    return <%= camelize(name) %>s.map((d: <%= classify(name) %>) => ({
-      label: `Label for <%= name %> with id ${d.id}`,
-      value: d.id
+    return <%= camelize(name) %>s.map((<%= camelize(name) %>: <%= classify(name) %>) => ({
+      label: `Label for <%= name %> with id ${<%= camelize(name) %>.id}`,
+      value: <%= camelize(name) %>.id
     }))
   }
 
   @Get('/:id')
   @Permission('read<%= classify(name) %>s')
-  async show(@Param('id') id: string): Promise<<%= classify(name) %>> {
+  async show(@Param('id', ParseIntPipe) id: number): Promise<<%= classify(name) %>> {
     return this.<%= camelize(name) %>Service.show(id)
   }
   
@@ -79,7 +80,7 @@ export class <%= classify(name) %>Controller {
 
   @Delete('/:id')
   @Permission('delete<%= classify(name) %>s')
-  async delete(@Param() id: string): Promise<DeleteResult> {
+  async delete(@Param('id', ParseIntPipe) id: number): Promise<DeleteResult> {
     return await this.<%= camelize(name) %>Service.destroy(id)
   }
 }
