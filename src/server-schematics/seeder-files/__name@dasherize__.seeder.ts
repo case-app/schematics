@@ -1,5 +1,5 @@
 import * as faker from 'faker/locale/fr'
-import { Connection, EntityManager } from 'typeorm'
+import { DataSource, EntityManager } from 'typeorm'
 
 import { <%= classify(name) %> } from '../../src/resources/<%= dasherize(name) %>/<%= dasherize(name) %>.entity'
 
@@ -7,8 +7,8 @@ export class <%= classify(name) %>Seeder {
   entityManager: EntityManager
   count: number
 
-  constructor(connection: Connection, count: number) {
-    this.entityManager = connection.createEntityManager()
+  constructor(dataSource, DataSource, count: number) {
+    this.entityManager = dataSource.manager
     this.count = count
   }
 

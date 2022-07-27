@@ -94,7 +94,7 @@ export function createResource(options: any): Rule {
       mainSeederString.substring(tableNamesPosition + 47)
 
     const closeConnectionPosition: number = mainSeederString.indexOf(
-      'await connection.close()'
+      'await dataSource.destroy()'
     )
 
     mainSeederString =
@@ -102,7 +102,7 @@ export function createResource(options: any): Rule {
         options.name
       )}.seeder'\n` +
       mainSeederString.substring(0, closeConnectionPosition) +
-      `await (new ${classify(options.name)}Seeder(connection, ${camelize(
+      `await (new ${classify(options.name)}Seeder(dataSource, ${camelize(
         options.name
       )}Count)).seed()\n  ` +
       mainSeederString.substring(closeConnectionPosition)
